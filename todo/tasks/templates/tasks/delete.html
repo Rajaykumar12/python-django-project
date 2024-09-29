@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete</title>
+    <style>
+        body{
+            text-align: center;
+            padding-top: 30px;
+        }
+        html{
+            background: burlywood;
+        }
+        h2{
+            font-family: cursive;
+        }
+        a{
+            text-decoration: none;
+            font-size: large;
+            color: azure;
+            background-color: coral;
+            padding-top: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 10px;
+            border-radius: 10px;
+        }
+        #submit{
+            color: antiquewhite;
+            text-decoration: none;
+            height: 40px;
+            width: 150px;
+            box-shadow: 5px 5px 5px #eee;
+            background-color: grey;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Are you sure you want to delete "{{item}}"</h2>
+
+    <a href="{% url 'list' %}">Cancel</a>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <input id="submit" type="submit" name="Confirm">
+    </form>
+</body>
+</html>

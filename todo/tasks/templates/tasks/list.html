@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo list</title>
+    <style>
+        body{
+            text-align: center;
+            padding-top: 30px;
+        }
+        html{
+            background: burlywood;
+        }
+        h1{
+            font-family: 'Lucida Sans';
+            color: rgb(70, 67, 64);
+
+        }
+        #submit{
+            color: antiquewhite;
+            text-decoration: none;
+            height: 40px;
+            width: 100px;
+            box-shadow: 5px 5px 5px #eee;
+            background-color: grey;
+            border: 1px solid #eee;
+            border-radius: 10px;
+        }
+        a{
+            text-decoration: none;
+            color: rgb(224, 108, 122);
+            place-items: right;
+            padding: auto;
+
+        }
+        #main{
+            margin-top: 10px;
+            margin-bottom: 15px;
+            background-color: rgb(219, 161, 85);
+            padding-top: 5px;
+            padding-bottom: 10px;
+            margin-left: 50px;
+            margin-right: 50px;
+            background-color:bisque;
+            border-radius: 10px;
+        }
+        #tasks{
+            place-content: left;
+            background-color: sandybrown;
+            padding: 5px;
+            margin-left: 150px;
+            margin-right: 150px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        #content{
+            margin-top: 10px;
+        }
+        #update{
+            background-color: antiquewhite;
+            padding: 5px;
+            margin: 5px;
+            border-radius: 10px;
+        }
+        #delete{
+            background-color: antiquewhite;
+            padding: 5px;
+            margin: 5px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>TODO list</h1>
+<form method="POST" action="/">
+    {% csrf_token %}
+    {{form.title}}
+    <input id="submit" type="submit" name="Create Task">
+</form>
+
+{% for task in tasks %}
+    <div id="main">
+        <div id="tasks">
+            {% if task.complete == True %}
+            <strike>{{task}}</strike>
+            {% else %}
+            <span>{{task}}</span>
+            {% endif %}
+        </div>
+        <div id="content">
+            <a id="update" href="{% url 'update_task' task.id %}">Update</a>
+            <a id="delete" href="{% url 'delete' task.id %}">Delete</a>
+        </div>
+    </div>
+{% endfor %}
+
+</body>
+</html>

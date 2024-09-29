@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+            padding-top: 30px;
+        }
+        html{
+            background: burlywood;
+        }
+        h2{
+            font-family: cursive;
+        }
+        #content{
+            margin-top: 50px;
+            margin-bottom: 40px;
+            margin-left: 50px;
+            margin-right: 50px;
+            background-color: bisque;
+            padding-top: 50px;
+            padding-bottom: 40px;
+            letter-spacing: 5px;
+            border-radius: 10px;
+        }
+        #submit{
+            color: antiquewhite;
+            text-decoration: none;
+            height: 40px;
+            width: 150px;
+            box-shadow: 5px 5px 5px #eee;
+            background-color: grey;
+            border: 1px solid #eee;
+            border-radius: 10px;
+        }
+        #button{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Update Task</h2>
+
+<form method="POST" action="">
+    {% csrf_token %}
+    <div id="content">
+            {{form}}
+        <div id="button">
+            <input id="submit" type="Submit" name="update task">
+        </div>
+    </div>
+    
+</form>
+</body>
+</html>
